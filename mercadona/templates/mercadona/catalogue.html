@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+
+{% extends 'base.html'%}
+
+{% block title %}Catalogue{% endblock %}
+
+{% block content %}
+    <h1>Catalogue</h1>
+
+    {% for produit in produits %}
+        <div class="produit">
+            <h3>{{ produit.libelle }}</h3>
+            <p>{{ produit.description }}</p>
+            {% if produit.promotion %}
+                <p class="prix-promo">{{ produit.prix|floatformat:2 }} €</p>
+            {% else %}
+                <p class="prix-normal">{{ produit.prix|floatformat:2 }} €</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,7 +1,9 @@
+# mercadona/urls.py
 from django.urls import path
-from mercadona.views import CatalogueView
+from .views import CatalogueView, PromotionView
 
-app_name = 'mercadona'
-urlpatterns =[
-    path('', CatalogueView.as_view(),name ='catalogue')
+urlpatterns = [
+    path('catalogue/', CatalogueView.as_view(), name='catalogue'),
+    path('promotion/<int:produit_id>/', PromotionView.as_view(), name='promotion'),
+
 ]

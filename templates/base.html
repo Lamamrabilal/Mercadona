@@ -1,10 +1,38 @@
+<!-- base.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Votre Titre par Défaut{% endblock %}</title>
+    <!-- Charger les fichiers statiques communs -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Vous pouvez ajouter d'autres fichiers statiques ici -->
 </head>
 <body>
+    <!-- Barre de navigation (vous pouvez personnaliser en fonction de vos besoins) -->
+    <nav>
+        <ul>
 
+            <li><a href="{% url 'mercadona:catalogue' %}">Catalogue</a></li>
+            <!-- Ajoutez d'autres liens de navigation si nécessaire -->
+        </ul>
+    </nav>
+
+    <!-- Contenu spécifique à chaque page -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Pied de page (vous pouvez personnaliser en fonction de vos besoins) -->
+    <footer>
+        <p>&copy; 2023 Votre Nom</p>
+    </footer>
+
+    <!-- Scripts JavaScript communs -->
+    <!-- <script src="{% static 'js/script.js' %}"></script>
+    Vous pouvez ajouter d'autres scripts ici -->
 </body>
 </html>
