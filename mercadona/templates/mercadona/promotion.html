@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}Liste des Promotions{% endblock %}
+
+{% block content %}
+    <h1>Liste des Promotions</h1>
+
+    {% for promotion in promotions %}
+        <div class="promotion">
+            <p>{{ promotion.produit.libelle }} en promotion jusqu'au {{ promotion.date_fin }}</p>
+            <p>Prix original : {{ promotion.produit.price|floatformat:2 }} €</p>
+            <p>Nouveau prix : {{ promotion.produit.price - (promotion.pourcentage_remise/100 * promotion.produit.price)|floatformat:2 }} €</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+

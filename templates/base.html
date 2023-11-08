@@ -16,7 +16,8 @@
     <nav>
         <ul>
 
-            <li><a href="{% url 'mercadona:catalogue' %}">Catalogue</a></li>
+            <li><a href="{% url 'catalogue' %}">Catalogue</a></li>
+            <li><a href="{% url 'promotion' produit_id=42 %}">Promotion</a></li>
             <!-- Ajoutez d'autres liens de navigation si nécessaire -->
         </ul>
     </nav>
