@@ -1,0 +1,44 @@
+/* static/css/styles.css */
+
+/* Style pour la barre de navigation */
+nav {
+    background-color: #f6f6f6;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.navbar-nav .nav-link {
+    color: #f6f6f6;
+}
+
+/* Style pour le formulaire de promotion */
+.form-container {
+    background-color: #10b798;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les champs de formulaire */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+/* Style pour le bouton du formulaire */
+.form-container button {
+    background-color: #a800bb;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajoutez d'autres styles selon vos besoins */

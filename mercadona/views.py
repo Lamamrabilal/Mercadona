@@ -47,14 +47,22 @@ class PromotionView(View):
 class AddProductView(View):
     def get(self, request):
         form = ProductForm()
-        return render(request, 'add_product.html', {'form': form})
+        return render(request, 'mercadona/add_product.html', {'form': form})
 
     def post(self, request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('catalog')
+            return redirect('catalogue')
         return render(request, 'add_product.html', {'form': form})
+
+
+
+class AccueilView(View):
+    template_name = 'mercadona/home.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
 
 class CustomLoginView(LoginView):

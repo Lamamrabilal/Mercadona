@@ -1,0 +1,36 @@
+<!-- promo_app/templates/mercadona/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Bienvenue sur Mercadona{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenue sur Mercadona</h1>
+
+
+
+        <p class="lead">Découvrez les meilleures promotions sur une large gamme de produits.</p>
+        <hr class="my-4">
+        <p>Ne manquez pas nos offres spéciales et économisez sur vos achats.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'catalogue' %}" role="button">Découvrir le Catalogue</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Nos Catégories</h2>
+            <p>Explorez nos produits classés par catégorie.</p>
+            <a class="btn btn-secondary" href="{% url 'catalogue' %}" role="button">Voir le Catalogue</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Promotions en Cours</h2>
+            <p>Découvrez nos promotions actuelles et économisez sur vos achats préférés.</p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Ajouter un Produit</h2>
+            <p>Vous êtes administrateur ? Ajoutez de nouveaux produits et lancez des promotions.</p>
+            <a class="btn btn-secondary" href="{% url 'add_product' %}" role="button">Ajouter un Produit</a>
+        </div>
+    </div>
+{% endblock %}
