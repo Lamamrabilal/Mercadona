@@ -1,16 +1,29 @@
-{% extends 'base.html' %}
+<!-- promotion.html -->
 
+{% extends 'base.html' %}
+{% load custom_filters %}
 {% block title %}Liste des Promotions{% endblock %}
 
 {% block content %}
-    <h1>Liste des Promotions</h1>
+    <div class="container mt-4">
+        <h1>Liste des Promotions</h1>
 
-    {% for promotion in promotions %}
-        <div class="promotion">
-            <p>{{ promotion.produit.libelle }} en promotion jusqu'au {{ promotion.date_fin }}</p>
-            <p>Prix original : {{ promotion.produit.price|floatformat:2 }} €</p>
-            <p>Nouveau prix : {{ promotion.produit.price - (promotion.pourcentage_remise/100 * promotion.produit.price)|floatformat:2 }} €</p>
-        </div>
-    {% endfor %}
+        {% for promotion in promotions %}
+            <div class="promotion card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ promotion.produit.libelle }} en promotion jusqu'au {{ promotion.date_fin }}</h5>
+                    <p class="card-text">
+                {% if produit.promotion %}
+                        <p class="prix-promo">
+                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
+                            <span class="new-price text-danger">Nouveau prix : {{ produit.prix|calculer_prix_reduction:produit.promotion.pourcentage_remise|floatformat:2 }} €</span>
+                        </p>
+                    {% else %}
+                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-

@@ -1,21 +1,35 @@
+<!-- catalogue.html -->
 
+{% extends 'base.html' %}
 
-{% extends 'base.html'%}
+{% load custom_filters %}
 
 {% block title %}Catalogue{% endblock %}
 
 {% block content %}
-    <h1>Catalogue</h1>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Catalogue</h1>
 
-    {% for produit in produits %}
-        <div class="produit">
-            <h3>{{ produit.libelle }}</h3>
-            <p>{{ produit.description }}</p>
-            {% if produit.promotion %}
-                <p class="prix-promo">{{ produit.prix|floatformat:2 }} €</p>
-            {% else %}
-                <p class="prix-normal">{{ produit.prix|floatformat:2 }} €</p>
-            {% endif %}
-        </div>
-    {% endfor %}
+        {% for produit in produits %}
+            <div class="produit card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ produit.libelle }}</h5>
+                    <p class="card-text">{{ produit.description }}</p>
+
+                    {% if produit.image %}
+                        <img src="{{ produit.image.url }}" alt="{{ produit.libelle }}" class="img-fluid produit-image">
+                    {% endif %}
+
+                    {% if produit.promotion %}
+                        <p class="prix-promo">
+                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
+                            <span class="new-price text-danger">Nouveau prix : {{ produit.prix|calculer_prix_reduction:produit.promotion.pourcentage_remise|floatformat:2 }} €</span>
+                        </p>
+                    {% else %}
+                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

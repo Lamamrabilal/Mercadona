@@ -41,4 +41,54 @@ nav {
     cursor: pointer;
 }
 
-/* Ajoutez d'autres styles selon vos besoins */
+/* promo_app/static/css/styles.css */
+.jumbotron {
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Couleur du texte */
+    text-align: center;
+}
+
+img  .img-fluid{
+    width: 400px;
+}
+
+.produit {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px; /* Ajustez la largeur selon vos besoins */
+            float: left; /* Assurez-vous que les produits restent côte à côte */
+            margin-right: 20px; /* Espace entre les produits */
+        }
+
+        .produit h3 {
+            color: #333;
+        }
+
+        .produit p {
+            color: #666;
+        }
+
+        .produit img {
+            max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+            height: auto; /* Maintenez le rapport hauteur/largeur de l'image */
+            margin-bottom: 10px;
+        }
+
+        .prix-promo, .prix-normal {
+            font-size: 18px;
+            font-weight: bold;
+            color: #E44D26; /* Rouge pour les prix en promotion */
+        }
+
+        .prix-normal {
+            text-decoration: line-through; /* Barre sur le prix normal */
+            color: #333; /* Couleur normale pour les prix normaux */
+        }

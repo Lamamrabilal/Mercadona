@@ -21,26 +21,27 @@ class CatalogueView(View):
         return render(request, self.template_name, context)
 
 
+from django.shortcuts import get_object_or_404
+
 class PromotionView(View):
     template_name = 'mercadona/promotion.html'
 
     @method_decorator(login_required)
     def get(self, request, produit_id, *args, **kwargs):
-        produit = Produit.objects.get(pk=produit_id)
+        produit = get_object_or_404(Produit, pk=produit_id)
         form = PromotionForm(initial={'produit': produit})
         return render(request, self.template_name, {'form': form, 'produit': produit})
 
     @method_decorator(login_required)
     def post(self, request, produit_id, *args, **kwargs):
-        produit = Produit.objects.get(pk=produit_id)
+        produit = get_object_or_404(Produit, pk=produit_id)
         form = PromotionForm(request.POST)
         if form.is_valid():
             promotion = form.save(commit=False)
             promotion.produit = produit
             promotion.save()
-            return redirect('catalogue')  # Rediriger vers le catalogue après ajout de la promotion
+            return redirect('catalogue')
         return render(request, self.template_name, {'form': form, 'produit': produit})
-
 
 
 @method_decorator(login_required, name='dispatch')
@@ -63,9 +64,4 @@ class AccueilView(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
-
-
-class CustomLoginView(LoginView):
-    template_name = 'login.html'
-
 
