@@ -1,27 +1,41 @@
-<!-- promotion.html -->
-
 {% extends 'base.html' %}
 {% load custom_filters %}
-{% block title %}Liste des Promotions{% endblock %}
+{% block title %}Promotion{% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
-        <h1>Liste des Promotions</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Promotion</h1>
 
-        {% for promotion in promotions %}
-            <div class="promotion card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{ promotion.produit.libelle }} en promotion jusqu'au {{ promotion.date_fin }}</h5>
-                    <p class="card-text">
-                {% if produit.promotion %}
-                        <p class="prix-promo">
-                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
-                            <span class="new-price text-danger">Nouveau prix : {{ produit.prix|calculer_prix_reduction:produit.promotion.pourcentage_remise|floatformat:2 }} €</span>
-                        </p>
-                    {% else %}
-                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
-                    {% endif %}
-                    </p>
+        {% for category in categories %}
+            <div class="category">
+                <h2>{{ category.libelle }}</h2>
+                <div class="row">
+                    {% for produit in produits|filter_by_category:category %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <!-- Afficher l'image du produit s'il y en a une -->
+                                {% if produit.image %}
+                                    <img src="{{ produit.image.url }}" alt="{{ produit.libelle }}" class="card-img-top">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">{{ produit.libelle }}</h5>
+                                    <p class="card-text">{{ produit.description }}</p>
+
+                                    {% if produit.promotion %}
+                                        <!-- Afficher les détails de la promotion -->
+                                        <p class="prix-promo">
+                                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
+                                            <span class="new-price text-danger">Nouveau prix : {{ produit.promotion.nouveau_prix|floatformat:2 }} €</span>
+                                        </p>
+                                        <p>Promotion jusqu'au {{ produit.promotion.date_fin }}</p>
+                                    {% else %}
+                                        <!-- Afficher le prix normal s'il n'y a pas de promotion -->
+                                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}

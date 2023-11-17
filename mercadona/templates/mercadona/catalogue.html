@@ -1,33 +1,44 @@
-<!-- catalogue.html -->
-
 {% extends 'base.html' %}
-
 {% load custom_filters %}
 
 {% block title %}Catalogue{% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
+    <div class="container mt-5">
         <h1 class="text-center mb-4">Catalogue</h1>
 
-        {% for produit in produits %}
-            <div class="produit card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title text-primary">{{ produit.libelle }}</h5>
-                    <p class="card-text">{{ produit.description }}</p>
+        {% for category in categories %}
+            <div class="category mb-4">
+                <h2 class="category-name">{{ category.libelle }}</h2>
+                <div class="row">
+                    {% for produit in produits|filter_by_category:category %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                {% if produit.image %}
+                                    <img src="{{ produit.image.url }}" alt="{{ produit.libelle }}" class="card-img-top">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">{{ produit.libelle }}</h5>
+                                    <p class="card-text">{{ produit.description }}</p>
 
-                    {% if produit.image %}
-                        <img src="{{ produit.image.url }}" alt="{{ produit.libelle }}" class="img-fluid produit-image">
-                    {% endif %}
+                                    <p>Catégories:
+                                        {% for cat in produit.categories.all %}
+                                            {{ cat.nom }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </p>
 
-                    {% if produit.promotion %}
-                        <p class="prix-promo">
-                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
-                            <span class="new-price text-danger">Nouveau prix : {{ produit.prix|calculer_prix_reduction:produit.promotion.pourcentage_remise|floatformat:2 }} €</span>
-                        </p>
-                    {% else %}
-                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
-                    {% endif %}
+                                    {% if produit.promotion %}
+                                        <p class="prix-promo">
+                                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
+                                            <span class="new-price text-danger">Nouveau prix : {{ produit.prix|calculer_prix_reduction:produit.promotion.pourcentage_remise|floatformat:2 }} €</span>
+                                        </p>
+                                    {% else %}
+                                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}

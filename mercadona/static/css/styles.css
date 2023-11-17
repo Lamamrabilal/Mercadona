@@ -1,94 +1,91 @@
-/* static/css/styles.css */
 
-/* Style pour la barre de navigation */
-nav {
-    background-color: #f6f6f6;
+body {
+    font-family: 'Arial', sans-serif;
 }
 
-.navbar-brand {
-    font-size: 1.5em;
+
+.navbar {
+    background-color: #343a40;
 }
 
+.navbar-brand,
 .navbar-nav .nav-link {
-    color: #f6f6f6;
-}
-
-/* Style pour le formulaire de promotion */
-.form-container {
-    background-color: #10b798;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Style pour les champs de formulaire */
-.form-container input,
-.form-container select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-}
-
-/* Style pour le bouton du formulaire */
-.form-container button {
-    background-color: #a800bb;
     color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-/* promo_app/static/css/styles.css */
-.jumbotron {
-    position: relative;
+
+.navbar {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; /* Couleur du texte */
-    text-align: center;
+
+.form-control {
+    border-radius: 20px;
 }
 
-img  .img-fluid{
-    width: 400px;
+.btn-outline-success {
+    border-radius: 20px;
 }
 
-.produit {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 300px; /* Ajustez la largeur selon vos besoins */
-            float: left; /* Assurez-vous que les produits restent côte à côte */
-            margin-right: 20px; /* Espace entre les produits */
-        }
 
-        .produit h3 {
-            color: #333;
-        }
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #ffffff;
+}
 
-        .produit p {
-            color: #666;
-        }
 
-        .produit img {
-            max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
-            height: auto; /* Maintenez le rapport hauteur/largeur de l'image */
-            margin-bottom: 10px;
-        }
+footer {
+    background: linear-gradient(to right, #343a40, #292b2c);
+    color: #ffffff;
+    padding: 10px 0;
+}
 
-        .prix-promo, .prix-normal {
-            font-size: 18px;
-            font-weight: bold;
-            color: #E44D26; /* Rouge pour les prix en promotion */
-        }
 
-        .prix-normal {
-            text-decoration: line-through; /* Barre sur le prix normal */
-            color: #333; /* Couleur normale pour les prix normaux */
-        }
+footer {
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+body {
+        font-family: 'Arial', sans-serif; /* Change the font family as needed */
+        background-color: #f8f9fa; /* Set a background color for the entire page */
+        color: #343a40; /* Set the text color */
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white; /* Set the text color for the overlay */
+    }
+
+    h1.display-4 {
+        font-size: 3.5rem; /* Adjust the font size as needed */
+    }
+
+    p.lead {
+        font-size: 1.25rem; /* Adjust the font size as needed */
+    }
+
+    hr.my-4 {
+        border-color: #fff; /* Set the color of the horizontal rule */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Set the background color for primary buttons */
+        border-color: #007bff; /* Set the border color for primary buttons */
+        color: #fff; /* Set the text color for primary buttons */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Set the background color on hover for primary buttons */
+        border-color: #0056b3; /* Set the border color on hover for primary buttons */
+    }
+
+    .card {
+        margin-bottom: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }

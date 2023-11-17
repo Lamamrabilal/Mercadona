@@ -5,42 +5,55 @@
 
 {% block content %}
 {% load static %}
- <div class="jumbotron position-relative">
-        <img src="{% static 'images/image1.jpg' %}" alt="Image principale" class="img-fluid";>
-        <div class="overlay-text">
-            <h1 class="display-3">Bienvenue sur Mercadona</h1>
-            <p class="lead">Découvrez les meilleures promotions sur une large gamme de produits.</p>
-            <hr class="my-4">
-            <p>Ne manquez pas nos offres spéciales et économisez sur vos achats.</p>
-            <a class="btn btn-primary btn-lg" href="{% url 'catalogue' %}" role="button">Découvrir le Catalogue</a>
-        </div>
-    </div>
+<div class="container-fluid">
+    <div class="row position-relative">
+        <div class="col-md-12 ">
+            <img src="{% static 'images/image1.jpg' %}" alt="Main Image" class="img-fluid" style="height: 800px; width: 100%">
 
-
-    <div class="row">
-        <div class="col-md-4">
-            <!-- Catégories -->
-            <h2>Nos Catégories</h2>
-            <p>Explorez nos produits classés par catégorie.</p>
-            <a class="btn btn-secondary" href="{% url 'catalogue' %}" role="button">Voir le Catalogue</a>
-        </div>
-
-        <div class="col-md-4">
-            <!-- Promotions -->
-            <h2>Promotions en Cours</h2>
-            <p>Découvrez nos promotions actuelles et économisez sur vos achats préférés.</p>
-        </div>
-
-        <div class="col-md-4">
-            <!-- Ajouter un Produit et Recherche -->
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <h2>Ajouter un Produit</h2>
-                    <p>Vous êtes administrateur ? Ajoutez de nouveaux produits et lancez des promotions.</p>
-                </div>
-                <a class="btn btn-secondary" href="{% url 'add_product' %}" role="button">Ajouter un Produit</a>
-
+            <!-- Container for overlay text -->
+            <div class="overlay-text">
+                <h1 class="display-4">Bienvenue sur Mercadona</h1>
+                <p class="lead">Découvrez les meilleures promotions sur une large gamme de produits.</p>
+                <hr class="my-4">
+                <p>Ne manquez pas nos offres spéciales et économisez sur vos achats.</p>
+                <a class="btn btn-primary btn-lg" href="{% url 'catalogue' %}" role="button">Découvrir le Catalogue</a>
             </div>
         </div>
     </div>
+</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/categories.jpg' %}" class="card-img-top img-fluid" alt="Categories">
+                <div class="card-body">
+                    <h2 class="card-title">Nos Catégories</h2>
+                    <p class="card-text">Explorez nos produits classés par catégorie.</p>
+                    <a class="btn btn-primary" href="{% url 'catalogue' %}" role="button">Voir le Catalogue</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/promotion.jpg' %}" class="card-img-top img-fluid" alt="Promotions">
+                <div class="card-body">
+                    <h2 class="card-title">Promotions en Cours</h2>
+                    <p class="card-text">Découvrez nos promotions actuelles et économisez sur vos achats préférés.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/produit.jpg' %}" class="card-img-top img-fluid" alt="Ajouter un Produit">
+                <div class="card-body">
+                    <h2 class="card-title">Ajouter un Produit</h2>
+                    <p class="card-text">Vous êtes administrateur ? Ajoutez de nouveaux produits et lancez des promotions.</p>
+                    <a class="btn btn-primary" href="{% url 'add_product' %}" role="button">Ajouter un Produit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
