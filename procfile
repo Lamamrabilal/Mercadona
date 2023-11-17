@@ -1,1 +1,1 @@
-web: gunicorn promo_app.wsgi
+web: gunicorn mercadonapromo.wsgi
