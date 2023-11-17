@@ -1,91 +1,99 @@
-
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Set the default font family */
 }
 
-
+/* Navbar Styles */
 .navbar {
-    background-color: #343a40;
+    background-color: #343a40; /* Set the background color of the navbar */
 }
 
 .navbar-brand,
 .navbar-nav .nav-link {
-    color: #ffffff;
+    color: #ffffff; /* Set the text color of navbar elements */
 }
 
-
+/* Navbar Box Shadow */
 .navbar {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a box shadow to the navbar */
 }
 
-
+/* Form Control Styles */
 .form-control {
-    border-radius: 20px;
+    border-radius: 20px; /* Set border-radius for form controls */
 }
 
+/* Button Styles */
 .btn-outline-success {
-    border-radius: 20px;
+    border-radius: 20px; /* Set border-radius for outline success buttons */
 }
 
-
+/* Button Hover Effect */
 .btn-outline-success:hover {
-    background-color: #28a745;
-    color: #ffffff;
+    background-color: #28a745; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
 }
 
-
+/* Footer Styles */
 footer {
-    background: linear-gradient(to right, #343a40, #292b2c);
-    color: #ffffff;
-    padding: 10px 0;
+    background: linear-gradient(to right, #343a40, #292b2c); /* Set a gradient background for the footer */
+    color: #ffffff; /* Set the text color of the footer */
+    padding: 10px 0; /* Add padding to the footer */
 }
 
-
+/* Footer Box Shadow */
 footer {
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1); /* Add a box shadow to the bottom of the footer */
 }
 
-
+/* Additional Body Styles */
 body {
-        font-family: 'Arial', sans-serif; /* Change the font family as needed */
-        background-color: #f8f9fa; /* Set a background color for the entire page */
-        color: #343a40; /* Set the text color */
-    }
+    font-family: 'Arial', sans-serif; /* Change the font family as needed */
+    background-color: #f8f9fa; /* Set a background color for the entire page */
+    color: #343a40; /* Set the text color */
+}
 
-    .overlay-text {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white; /* Set the text color for the overlay */
-    }
+/* Overlay Text Styles */
+.overlay-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Set the text color for the overlay */
+}
 
-    h1.display-4 {
-        font-size: 3.5rem; /* Adjust the font size as needed */
-    }
+/* Heading Styles */
+h1.display-4 {
+    font-size: 3.5rem; /* Adjust the font size as needed */
+}
 
-    p.lead {
-        font-size: 1.25rem; /* Adjust the font size as needed */
-    }
+/* Lead Paragraph Styles */
+p.lead {
+    font-size: 1.25rem; /* Adjust the font size as needed */
+}
 
-    hr.my-4 {
-        border-color: #fff; /* Set the color of the horizontal rule */
-    }
+/* Horizontal Rule Styles */
+hr.my-4 {
+    border-color: #fff; /* Set the color of the horizontal rule */
+}
 
-    .btn-primary {
-        background-color: #007bff; /* Set the background color for primary buttons */
-        border-color: #007bff; /* Set the border color for primary buttons */
-        color: #fff; /* Set the text color for primary buttons */
-    }
+/* Primary Button Styles */
+.btn-primary {
+    background-color: #007bff; /* Set the background color for primary buttons */
+    border-color: #007bff; /* Set the border color for primary buttons */
+    color: #fff; /* Set the text color for primary buttons */
+}
 
-    .btn-primary:hover {
-        background-color: #0056b3; /* Set the background color on hover for primary buttons */
-        border-color: #0056b3; /* Set the border color on hover for primary buttons */
-    }
+/* Primary Button Hover Effect */
+.btn-primary:hover {
+    background-color: #0056b3; /* Set the background color on hover for primary buttons */
+    border-color: #0056b3; /* Set the border color on hover for primary buttons */
+}
 
-    .card {
-        margin-bottom: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-    }
+/* Card Styles */
+.card {
+    margin-bottom: 20px; /* Set margin bottom for cards */
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Set border for cards */
+    border-radius: 0.25rem; /* Set border-radius for cards */
+}

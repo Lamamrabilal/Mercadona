@@ -2,68 +2,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Votre Titre par Défaut{% endblock %}</title>
+    <title>{% block title %}Your Default Title{% endblock %}</title>
+
+    <!-- Load static files and Bootstrap styles -->
     {% load static %}
     {% load django_bootstrap5 %}
     <link rel="stylesheet" href="{% static '/css/styles.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-   <!-- Barre de navigation Bootstrap -->
-<!-- Barre de navigation Bootstrap -->
+   <!-- Bootstrap Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
+        <!-- Brand logo and toggle button for mobile view -->
         <a class="navbar-brand" href="{% url 'home' %}">Mercadona</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Navigation links -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Accueil</a>
+                    <a class="nav-link" href="{% url 'home' %}">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'catalogue' %}">Catalogue</a>
+                    <a class="nav-link" href="{% url 'catalogue' %}">Catalog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'promotion' produit=1%}">Promo</a>
+                    <a class="nav-link" href="{% url 'promotion' produit=1%}">Promotion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'add_product' %}">Add_product</a>
+                    <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
                 </li>
             </ul>
 
-           <!-- Barre de recherche et panier -->
+            <!-- Search bar and cart button -->
             <div class="d-flex">
                 <form class="me-2">
-                    <input class="form-control" type="search" placeholder="Rechercher" aria-label="Search">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                 </form>
-                <button class="btn btn-outline-success me-2" type="submit">Rechercher</button>
+                <button class="btn btn-outline-success me-2" type="submit">Search</button>
 
-                <!-- Code pour afficher le panier -->
+                <!-- Code to display the cart -->
                 <a href="" class="btn btn-outline-light me-2">
-                    <i class="bi bi-cart"></i> Panier
+                    <i class="bi bi-cart"></i> Cart
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
-    <!-- Contenu spécifique à chaque page -->
+    <!-- Content specific to each page -->
     <div class="content">
         {% block content %}{% endblock %}
     </div>
 
-    <!-- Pied de page (vous pouvez personnaliser en fonction de vos besoins) -->
+    <!-- Footer section -->
     <footer>
         <p>&copy; 2023 Mercadona Home</p>
     </footer>
 
-    <!-- Scripts JavaScript communs -->
-
-    <!-- Vous pouvez ajouter d'autres scripts ici -->
+    <!-- Bootstrap JavaScript -->
     {% bootstrap_javascript %}
 </body>
 </html>

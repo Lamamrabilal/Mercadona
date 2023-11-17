@@ -3,34 +3,47 @@
 {% block title %}Promotion{% endblock %}
 
 {% block content %}
+    <!-- Container for the promotion content -->
     <div class="container mt-5">
+        <!-- Heading for the promotion -->
         <h1 class="text-center mb-4">Promotion</h1>
 
+        <!-- Loop through categories -->
         {% for category in categories %}
             <div class="category">
+                <!-- Display category name -->
                 <h2>{{ category.libelle }}</h2>
+
+                <!-- Display products in the current category -->
                 <div class="row">
                     {% for produit in produits|filter_by_category:category %}
                         <div class="col-md-4">
+                            <!-- Product card -->
                             <div class="card mb-4">
-                                <!-- Afficher l'image du produit s'il y en a une -->
+                                <!-- Display product image if available -->
                                 {% if produit.image %}
                                     <img src="{{ produit.image.url }}" alt="{{ produit.libelle }}" class="card-img-top">
                                 {% endif %}
+
+                                <!-- Product details -->
                                 <div class="card-body">
+                                    <!-- Product title -->
                                     <h5 class="card-title text-primary">{{ produit.libelle }}</h5>
+
+                                    <!-- Product description -->
                                     <p class="card-text">{{ produit.description }}</p>
 
+                                    <!-- Check if the product has a promotion -->
                                     {% if produit.promotion %}
-                                        <!-- Afficher les détails de la promotion -->
+                                        <!-- Display promotion details -->
                                         <p class="prix-promo">
-                                            <span class="original-price text-muted">Prix original : {{ produit.prix|floatformat:2 }} €</span><br>
-                                            <span class="new-price text-danger">Nouveau prix : {{ produit.promotion.nouveau_prix|floatformat:2 }} €</span>
+                                            <span class="original-price text-muted">Original Price: {{ produit.prix|floatformat:2 }} €</span><br>
+                                            <span class="new-price text-danger">New Price: {{ produit.promotion.nouveau_prix|floatformat:2 }} €</span>
                                         </p>
-                                        <p>Promotion jusqu'au {{ produit.promotion.date_fin }}</p>
+                                        <p>Promotion until {{ produit.promotion.date_fin }}</p>
                                     {% else %}
-                                        <!-- Afficher le prix normal s'il n'y a pas de promotion -->
-                                        <p class="prix-normal">Prix : {{ produit.prix|floatformat:2 }} €</p>
+                                        <!-- Display normal price if there is no promotion -->
+                                        <p class="prix-normal">Price: {{ produit.prix|floatformat:2 }} €</p>
                                     {% endif %}
                                 </div>
                             </div>

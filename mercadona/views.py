@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.utils import timezone
 from django.views import View
 from django.contrib.auth.decorators import login_required
@@ -39,6 +40,7 @@ class PromotionView(View):
         context = {'form': form, 'produit': get_object_or_404(Produit, id=produit)}
         return render(request, self.template_name, context)
 
+
 def is_admin(user):
     return user.is_authenticated and user.is_staff
 
@@ -54,7 +56,13 @@ class AddProductView(View):
         if form.is_valid():
             new_product = form.save()
             produit_id = new_product.id
-            return redirect('promo_app:promotion', produit_id=produit_id)
+
+            # Get the URL for the Django admin page
+            admin_url = reverse('admin:index')
+
+            # Redirect to the Django admin page
+            return redirect(admin_url)
+
         return render(request, 'mercadona/add_product.html', {'form': form})
 
 class AccueilView(View):
